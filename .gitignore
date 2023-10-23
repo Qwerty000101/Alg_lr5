@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+Alg_lr4_1/.vs/
 build/
 develop-eggs/
 dist/
