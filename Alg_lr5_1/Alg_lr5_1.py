@@ -4,11 +4,14 @@ import numpy as np
 import timeit
 import matplotlib.pyplot as plt
 from math import sqrt
+
+
 def bubble_sort(arr):
     for i in range(len(arr)-1):
         for j in range(len(arr)-i-1):
             if arr[j] > arr[j+1]:
                 arr[j],arr[j+1] = arr[j+1],arr[j]
+
 
 def correlation(array_of_values_x,array_of_values_y):
     sigma_first = 0
@@ -32,8 +35,10 @@ def correlation(array_of_values_x,array_of_values_y):
         sigma_third += (array_of_values_y[i]-average_value_y)**2
 
     pair_correlation_coefficient = sigma_first/(sqrt(sigma_second)*
-                                              sqrt(sigma_third))
+                                                sqrt(sigma_third))
     return pair_correlation_coefficient
+
+
 time_min = []
 x = []
 for i in range(1,101):
@@ -52,12 +57,14 @@ sum_x3 = 0
 sum_x4 = 0
 sum_yx2 = 0
 sum_yx = 0
+
 for i in range(0,len(x)):
     sum_x2 += i*i
     sum_x3 += i*i*i
     sum_x4 += i*i*i*i
     sum_yx2 += time_min[i]*i*i
     sum_yx += time_min[i]*i
+
 an = len(x)
 matrix = np.array([[sum_x4, sum_x3,sum_x2], 
                    [sum_x3, sum_x2, sum_x], 
@@ -79,8 +86,10 @@ a = third_det/det
 b = second_det/det
 c = first_det/det
 func = []
+
 for i in x:
     func.append(a*i*i+b*i+c)
+
 plt.figure(figsize=(10,6))
 plt.figure(1)
 plt.title("Зависимость времени сортировки от размера массива")
